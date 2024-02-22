@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SyncThinkTechnology.Models.Stock>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductBarcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductBarcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.ProductName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Quantity }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Quantity }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Quantity })
+        </td>
+    </tr>
+}
+
+</table>
